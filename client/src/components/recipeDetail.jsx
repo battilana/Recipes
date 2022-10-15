@@ -9,7 +9,7 @@ export default function RecipeDetail(){
     useEffect(()=>{
         axios.get("http://localhost:3001/recipes/" + id)
         .then((r)=>{
-            if(r.data.id <= 1000000){
+            if(r.data.id < 1000000){
                 let recipe = {
                     image:r.data.image,
                     name: r.data.title,
@@ -23,6 +23,7 @@ export default function RecipeDetail(){
 
         })
     },[])
+    console.log(rec)
     return <div>
         { 
         rec?

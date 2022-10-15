@@ -92,6 +92,7 @@ router.post("/add", async (req, res,next)=>{
             name, description, score, steps, id, type
         })
         let types = await Type.findAll({})
+        let id2 = types.length+7
         type.map(async(e)=>{
             
             let types2 = types.filter(t => t.name === e)
@@ -101,9 +102,9 @@ router.post("/add", async (req, res,next)=>{
             }
             //ESTA ENTRANDO ACA NO SE ESTA CREANDO LA RECETA???
             else{
-                let id = types.length+7
+                id2++
                 console.log(type)
-                await Type.create({name:e, id})
+                await Type.create({name:e, id:id2})
                 .catch((error)=>next(error))}}
         )}
     catch(error){
