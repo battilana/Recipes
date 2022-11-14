@@ -7,7 +7,7 @@ export default function RecipeDetail(){
     const [rec, setRec] = useState("")
     let {id} = useParams()
     useEffect(()=>{
-        axios.get("http://localhost:3001/recipes/" + id)
+        axios.get("/recipes/" + id)
         .then((r)=>{
             if(r.data.id < 1000000){
                 let recipe = {

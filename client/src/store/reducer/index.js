@@ -116,7 +116,7 @@ export default function reducer(state=initialState, action){
                     let newRec = action.payload
                     let newAdded = [...state.filteredRec].push(newRec)
                     newRec.type.map((t)=>(
-                        axios.post(`http://localhost:3001/videogames/${newRec.id}/types/${t}`)
+                        axios.post(`/recipes/${newRec.id}/types/${t}`)
                         .catch((error)=>console.log(error))
                     ))
                     return {

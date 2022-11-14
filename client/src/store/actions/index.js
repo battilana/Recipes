@@ -7,7 +7,7 @@ export const FETCH_T = "FETCH_T"
 export const ADD_REC= "ADD_rEC"
 export function fetchRec(){
     return function (dispatch){
-        axios.get("http://localhost:3001/recipes")
+        axios.get("/recipes")
         .then ((rec) =>{
             dispatch({
                 type: FETCH_REC,
@@ -21,7 +21,7 @@ export function fetchRec(){
 }
 export function searchRec(name){
     return function (dispatch){
-        axios.get("http://localhost:3001/recipes?name="+name)
+        axios.get("/recipes?name="+name)
         .then ((rec) =>{
             dispatch({
                 type: SEARCH,
@@ -35,7 +35,7 @@ export function searchRec(name){
 }
 export function addRec(post, rec){
     return function (dispatch){
-    axios.post("http://localhost:3001/recipes/add", post,  
+    axios.post("/recipes/add", post,  
     {headers:{"Content-Type" : "application/json"}})
     .then((rec)=>{
         dispatch({type: ADD_REC,
@@ -47,7 +47,7 @@ export function addRec(post, rec){
 }
 export function fetchType(){
     return function (dispatch){
-        axios.get("http://localhost:3001/types")
+        axios.get("/types")
         .then((t)=>{
             dispatch({
                 type: FETCH_T,
